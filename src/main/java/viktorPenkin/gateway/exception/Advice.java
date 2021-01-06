@@ -7,20 +7,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.net.ConnectException;
 
 @RestControllerAdvice
-public class Advice extends ResponseEntityExceptionHandler {
+public class Advice {
 
     @ExceptionHandler(ConnectException.class)
-    public String handleConnection(){
+    public String handleConnection() {
         return "Some problems  occurred with connection...";
     }
 
-    @ExceptionHandler(NumberFormatException.class)
-    public String handleNumberFormat(NumberFormatException e){
-        return e.toString();
-    }
 
     @ExceptionHandler(IncorrectNumberException.class)
-    public String handleNumberFormat(IncorrectNumberException e){
+    public String handleNumberFormat(IncorrectNumberException e) {
         return e.getMessage();
     }
 
