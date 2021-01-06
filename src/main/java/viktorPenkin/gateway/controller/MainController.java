@@ -22,8 +22,8 @@ public class MainController {
         if (type.equals("FACT") && value > 20) {
             throw new IncorrectNumberException("Number should be less than 21 to calculate factorial");
         }
-        if (type.equals("FIB") && value <=2) {
-            throw new IncorrectNumberException("Number should be more than 2 to calculate fibonacci");
+        if (type.equals("FIB") && (value <=2 || value >= 94)) {
+            throw new IncorrectNumberException("Number should be more than 2 and less than 94 to calculate fibonacci");
         }
         CommonDTO commonDTO = new CommonDTO(type, value);
         return getValue(commonDTO);

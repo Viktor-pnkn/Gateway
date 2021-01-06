@@ -25,16 +25,9 @@ public class GatewayControllerTest {
     @Test
     public void testGetBody() {
         Long i = Long.valueOf(r.nextInt(20));
-        //HttpEntity<CommonDTO> request = new HttpEntity<>(new CommonDTO("FACT", i));
         NumDTO numDTO = controller.getValue(new CommonDTO("FACT", i));
-        /*ResponseEntity<NumDTO> forEntity = template.exchange("http://localhost:8080/gateway/test", HttpMethod.POST,
-                request, NumDTO.class);
-
-        NumDTO numDTO = forEntity.getBody();*/
-
         assert numDTO != null;
         Long actual = numDTO.getValue();
-
             Long expected = 1L;
             for (int j = 1; j < i + 1; j++) {
                 expected *= j;
