@@ -12,10 +12,14 @@
         </tr>
     </table>
 </div>
+
 <div align="center">
         <form action="/gateway" method="post">
-            <input  name="type" placeholder="type (FACT or FIB)">
-            <input type="number" name="value" placeholder="number">
+            <select name="type">
+                <option>FACT</option>
+                <option>FIB</option>
+            </select>
+            <input type="number" name="value" placeholder="number" min="0" max="778">
             <input type="submit" value="Calculate">
         </form>
 </div>

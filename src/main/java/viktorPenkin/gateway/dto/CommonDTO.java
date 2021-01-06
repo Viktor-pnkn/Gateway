@@ -2,9 +2,9 @@ package viktorPenkin.gateway.dto;
 
 public class CommonDTO {
     private String type;
-    private Integer value;
+    private Long value;
 
-    public CommonDTO(String type, Integer value) {
+    public CommonDTO(String type, Long value) {
         this.type = type;
         this.value = value;
     }
@@ -17,11 +17,11 @@ public class CommonDTO {
         this.type = type;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 }

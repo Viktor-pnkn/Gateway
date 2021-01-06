@@ -1,6 +1,7 @@
 package viktorPenkin.gateway.controller;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -17,21 +18,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GatewayControllerTest {
 
     private RestTemplate template = new RestTemplate();
-    private Random r = new Random();
+    private Random r = new Random(10L);
+    @Autowired
+    private MainController controller;
 
     @Test
     public void testGetBody() {
-        int i = r.nextInt();
-        HttpEntity<CommonDTO> request = new HttpEntity<>(new CommonDTO("FACT", i));
-        ResponseEntity<NumDTO> forEntity = template.exchange("http://localhost:8080/gateway/test", HttpMethod.POST,
+        Long i = Long.valueOf(r.nextInt(20));
+        //HttpEntity<CommonDTO> request = new HttpEntity<>(new CommonDTO("FACT", i));
+        NumDTO numDTO = controller.getValue(new CommonDTO("FACT", i));
+        /*ResponseEntity<NumDTO> forEntity = template.exchange("http://localhost:8080/gateway/test", HttpMethod.POST,
                 request, NumDTO.class);
 
-        NumDTO numDTO = forEntity.getBody();
+        NumDTO numDTO = forEntity.getBody();*/
 
         assert numDTO != null;
-        Integer actual = numDTO.getValue();
+        Long actual = numDTO.getValue();
 
-            int expected = 1;
+            Long expected = 1L;
             for (int j = 1; j < i + 1; j++) {
                 expected *= j;
             }

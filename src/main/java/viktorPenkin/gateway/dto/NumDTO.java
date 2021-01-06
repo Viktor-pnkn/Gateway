@@ -7,13 +7,13 @@ import lombok.*;
 @Getter
 @Setter
 public class NumDTO {
-    private Integer value;
+    private Long value;
 
-    public Integer getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 }
