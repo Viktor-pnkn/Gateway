@@ -3,12 +3,8 @@ package viktorPenkin.gateway.controller;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import viktorPenkin.gateway.dto.CommonDTO;
-import viktorPenkin.gateway.dto.NumDTO;
 
 import java.util.Random;
 
@@ -25,7 +21,7 @@ public class GatewayControllerTest {
     @Test
     public void testGetBody() {
         Long i = Long.valueOf(r.nextInt(20));
-        NumDTO numDTO = controller.getValue(new CommonDTO("FACT", i));
+        CommonDTO numDTO = controller.getValue(new CommonDTO("FACT", i));
         assert numDTO != null;
         Long actual = numDTO.getValue();
             Long expected = 1L;
