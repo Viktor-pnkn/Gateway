@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(value = "_history")
-public class Common implements Serializable {
+public class Common {
     @Id
     private Long id;
     private String type;
